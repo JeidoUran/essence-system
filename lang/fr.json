@@ -1,0 +1,21 @@
+{
+  "ESSENCE.EssenceSlots": "Emplacements d'essence",
+  "ESSENCE.SectionTitle": "Essence System",
+  "ESSENCE.UnknownEssence": "Essence inconnue",
+  "ESSENCE.EmptySlot": "Emplacement vide",
+  "ESSENCE.FilledSlot": "Essence active",
+  "ESSENCE.Settings": {
+    "EmptySlotImage": {
+      "Name": "Image d'emplacement vide",
+      "Hint": "Chemin de l'image utilisée pour les emplacements vides."
+    },
+    "FilledSlotImage": {
+      "Name": "Image d'emplacement rempli",
+      "Hint": "Chemin de l'image utilisée pour les emplacements remplis."
+    },
+    "Glow": {
+      "Name": "Activer les effets de lueur",
+      "Hint": "Ajoute une lueur animée aux emplacements d'essence remplis."
+    }
+  }
+}

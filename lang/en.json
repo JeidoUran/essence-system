@@ -1,0 +1,21 @@
+{
+  "ESSENCE.EssenceSlots": "Essence Slots",
+  "ESSENCE.SectionTitle": "Essence System",
+  "ESSENCE.UnknownEssence": "Unknown Essence",
+  "ESSENCE.EmptySlot": "Empty Slot",
+  "ESSENCE.FilledSlot": "Active Slot",
+  "ESSENCE.Settings": {
+    "EmptySlotImage": {
+      "Name": "Empty Slot Image",
+      "Hint": "Path of the image used for empty slots."
+    },
+    "FilledSlotImage": {
+      "Name": "Filled Slot Image",
+      "Hint": "Path of the image used for filled slots."
+    },
+    "Glow": {
+      "Name": "Enable Glow Effects",
+      "Hint": "Adds an animated glow to filled essence slots."
+    }
+  }
+}

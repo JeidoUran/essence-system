@@ -1,0 +1,64 @@
+{
+  "id": "essence-system",
+  "title": "Essence System",
+  "description": "Automates the essence system for Etrian Odyssey TTRPG.",
+
+  "version": "1.0.0",
+  "authors": [
+    { "name": "Jeido_Uran",
+    "discord": "jeido_uran"
+    }
+  ],
+  "socket": false,
+  "scripts": [],
+  "esmodules": [
+      "scripts/main.js",
+      "scripts/settings.js"
+  ],
+  "styles": ["styles/styles.css"],
+  "templates": [],
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "4.2.2",
+          "maximum": "4.9.99"
+        }
+      }
+    ],
+    
+    "requires": [
+
+    ]
+  },
+  "packs": [
+    {
+      "name": "essence-system-test-essences",
+      "label": "Essence System Test Essences",
+      "path": "./packs/test-essences",
+      "module": "world",
+      "type": "Item",
+      "system": "dnd5e",
+      "lang": []
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    }
+  ],
+  "compatibility": {
+    "minimum": "12.331",
+    "verified": "12.331",
+    "maximum": "12.999"
+  }
+}
