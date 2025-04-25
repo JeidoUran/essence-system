@@ -187,6 +187,51 @@ function renderEssenceSlots(total, filled, item = null) {
     });
   });
   
+  Hooks.on("dnd5e.displayCard", async (item, chatMessage) => {
+
+    const totalSlots = item.getFlag("essence-system", "slots") ?? 0;
+    const filledSlots = item.getFlag("essence-system", "filledSlots") ?? 0;
+    if (totalSlots === 0) return;
+  
+    const html = $($.parseHTML(chatMessage.content));
+  
+    const header = html.find(".card-header.description.collapsible");
+    if (!header.length || html.find(".essence-slots-chatcard").length) return;
+  
+    const container = $(`<div class="essence-slots-chatcard" style="display: flex; gap: 2px; margin: 0em 0 0.25em 0;"></div>`);
+  
+    for (let i = 0; i < totalSlots; i++) {
+      const tooltip = getEssenceTooltip(i, totalSlots, filledSlots);
+      const slot = $(`<span class="essence-slot" data-tooltip="${tooltip}" style="position: relative; width: 12px; height: 12px;"></span>`);
+  
+      game.tooltip.activate(slot[0]);
+  
+      const emptyImg = $('<img class="slot-empty">').attr("src", game.settings.get("essence-system", "empty-slot-image"));
+      emptyImg.css({ position: "absolute", top: 0, left: 0, width: "12px", height: "12px" });
+      slot.append(emptyImg);
+  
+      if (i < filledSlots) {
+        const fullImg = $('<img class="slot-filled">').attr("src", game.settings.get("essence-system", "filled-slot-image"));
+        fullImg.css({ position: "absolute", top: 0, left: 0, width: "12px", height: "12px" });
+        const glowEnabled = game.settings.get("essence-system", "enableGlowEffect");
+        if (glowEnabled) {
+          slot.addClass("filled-glow");
+        }
+        slot.append(fullImg);
+      }
+  
+      container.append(slot);
+    }
+  
+    // 💡 Injection entre header et footer
+    header.after(container);
+  
+    // Met à jour le message
+    const wrapper = $("<div>").append(html);
+    await chatMessage.update({ content: wrapper.html() });
+  });
+   
+  
   function injectEssenceSlots($row, item) {
     const totalSlots = item.getFlag("essence-system", "slots") ?? 0;
     const filledSlots = item.getFlag("essence-system", "filledSlots") ?? 0;

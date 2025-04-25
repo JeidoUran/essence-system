@@ -129,6 +129,20 @@
   z-index: 0;
 }
 
+/* Ajustement pour mini-slots dans les chat cards (12x12) */
+.essence-slots-chatcard .filled-glow::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(0,255,255,0.4) 10%, rgba(0,255,255,0) 75%);
+  animation: aura-pulse 2.5s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Animation */
 @keyframes aura-pulse {
   0% {
