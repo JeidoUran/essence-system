@@ -146,7 +146,6 @@ function renderEssenceSlots(total, filled, item = null) {
       wrapper.appendChild(full);
     }
 
-    // 🧠 Ajoute un tooltip natif Foundry
     const isFilled = i < filled;
     const tooltip = getEssenceTooltip(i, total, filled);
     wrapper.setAttribute("data-tooltip", tooltip);
@@ -201,8 +200,7 @@ function renderEssenceSlots(total, filled, item = null) {
     const container = $(`<div class="essence-slots-chatcard" style="display: flex; gap: 2px; margin: 0em 0 0.25em 0;"></div>`);
   
     for (let i = 0; i < totalSlots; i++) {
-      const tooltip = getEssenceTooltip(i, totalSlots, filledSlots);
-      const slot = $(`<span class="essence-slot" data-tooltip="${tooltip}" style="position: relative; width: 12px; height: 12px;"></span>`);
+      const slot = $(`<span class="essence-slot" style="position: relative; width: 12px; height: 12px;"></span>`);
   
       game.tooltip.activate(slot[0]);
   
